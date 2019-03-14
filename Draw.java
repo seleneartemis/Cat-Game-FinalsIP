@@ -14,7 +14,7 @@ public class Draw extends JComponent{
 	public Player player;
 	public BufferedImage image;
 	public BufferedImage backgroundImage;
-	public URL resource = getClass().getResource("run0.png");
+	public URL resource = getClass().getResource("cat_walk0.png");
 
 
 	public int x = 300;
@@ -37,12 +37,12 @@ public class Draw extends JComponent{
 	public Draw(){
 
 		randomizer = new Random();
-		player = new Player (-10,530, this);
+		player = new Player (90,430, this);
 		spawnEnemy();
 		
 		try{
 			image = ImageIO.read(resource);
-			backgroundImage = ImageIO.read(getClass().getResource("background.jpg"));
+			backgroundImage = ImageIO.read(getClass().getResource("background.png"));
 		}
 		catch(IOException e){
 			e.printStackTrace();

@@ -11,11 +11,11 @@ public class Player {
 	Draw draw;
 
 	public BufferedImage image;
-	public URL resource = getClass().getResource("run0.png");
+	public URL resource = getClass().getResource("cat_walk0.png");
 
 	// circle's position
-	public int x = 30;
-	public int y = 30;
+	public int x = 90;
+	public int y = 430;
 	public int height;
 	public int width;
 
@@ -62,24 +62,22 @@ public class Player {
 		state++;
 
 		if(state == 0){
-			resource = getClass().getResource("run0.png");
+			resource = getClass().getResource("cat_walk0.png");
 		}
 		else if(state == 1){
-			resource = getClass().getResource("run1.png");
+			resource = getClass().getResource("cat_walk1.png");
 		}
 		else if(state == 2){
-			resource = getClass().getResource("run2.png");
+			resource = getClass().getResource("cat_walk2.png");
 		}
 		else if(state == 3){
-			resource = getClass().getResource("run3.png");
+			resource = getClass().getResource("cat_walk3.png");
 		}
 		else if(state == 4){
-			resource = getClass().getResource("run4.png");
-		}
-		else if(state == 5){
-			resource = getClass().getResource("run5.png");
+			resource = getClass().getResource("cat_walk4.png");
 			state = 0;
 		}
+		
 
 		try{
 			image = ImageIO.read(resource);
@@ -93,13 +91,13 @@ public class Player {
 		Thread thread1 = new Thread(new Runnable(){
 			public void run(){
 				isAttacking = true;
-				for(int ctr = 0; ctr < 5; ctr++){
+				for(int ctr = 1; ctr < 6; ctr++){
 					try {
-						if(ctr==4){
-							resource = getClass().getResource("run0.png");
+						if(ctr==5){
+							resource = getClass().getResource("cat_walk0.png");
 						}
 						else{
-							resource = getClass().getResource("attack"+ctr+".png");
+							resource = getClass().getResource("fastshot"+ctr+".png");
 						}
 						
 						try{
@@ -127,13 +125,15 @@ public class Player {
 	}
 
 	public void moveUp(){
-		y = y - 5;
+		y = y - 10;
+		x = x + 10;
 		reloadImage();
 		draw.repaint();
+		
 	}
 
 	public void moveDown(){
-		y = y + 5;
+	
 		reloadImage();
 		draw.repaint();
 	}

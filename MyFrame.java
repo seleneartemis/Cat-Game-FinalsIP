@@ -43,7 +43,7 @@ public class MyFrame extends JFrame implements KeyListener{
 
 	public static void main(String args[]){
 		MyFrame gameFrame = new MyFrame();
-		gameFrame.setSize(600,600);
+		gameFrame.setSize(803,600);
 		gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gameFrame.setVisible(true);
 		gameFrame.getContentPane().add(gameFrame.drawing);

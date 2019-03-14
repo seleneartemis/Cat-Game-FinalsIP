@@ -19,7 +19,7 @@ public class Monster{
 	public boolean contact = false;
 
 	public BufferedImage image;
-	public URL resource = getClass().getResource("slime/idle0.png");
+	public URL resource = getClass().getResource("enemy/enemy_walk0.png");
 
 	public Monster(Draw comp){
 		try{
@@ -63,10 +63,10 @@ public class Monster{
 					for(int ctr = 0; ctr < 5; ctr++){
 						try {
 							if(ctr==4){
-								resource = getClass().getResource("slime/idle0.png");
+								resource = getClass().getResource("enemy/enemy_walk0.png");
 							}
 							else{
-								resource = getClass().getResource("slime/idle"+ctr+".png");
+								resource = getClass().getResource("enemy/enemy_walk"+ctr+".png");
 							}
 							
 							try{
@@ -97,13 +97,6 @@ public class Monster{
 		}
 		else if(xPos>toX){
 			xPos--;
-		}
-
-		if(yPos<toY){
-			yPos++;
-		}
-		else if(yPos>toY){
-			yPos--;
 		}
 	}
 
