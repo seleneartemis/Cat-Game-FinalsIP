@@ -12,13 +12,14 @@ import java.util.ArrayList;
 public class Draw extends JComponent{
 
 	public Player player;
+	public Monster monster;
 	public BufferedImage image;
 	public BufferedImage backgroundImage;
 	public URL resource = getClass().getResource("cat_walk0.png");
 
 
-	public int x = 300;
-	public int y = 300;
+	public int x = 150;
+	public int y = 430;
 	public int height = 0;
 	public int width = 0;
 
@@ -38,6 +39,7 @@ public class Draw extends JComponent{
 
 		randomizer = new Random();
 		player = new Player (90,430, this);
+		monster = new Monster (150, 430, this);
 		spawnEnemy();
 		
 		try{

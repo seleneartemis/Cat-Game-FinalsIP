@@ -18,6 +18,21 @@ public class Player {
 	public int y = 430;
 	public int height;
 	public int width;
+	public int state = 0;
+
+	//Player stats
+	public int healthBar = 200;
+	public int power = 7;
+	public int defense = 2;
+	public int manaPoints = 10;
+
+	//Character states
+	public boolean isIdle = true;
+	public boolean isFacingRight = true;
+	public boolean isJumping = false;
+	public boolean isUsingMagic = false;
+	public boolean isDead = false;
+	public boolean usingSword = false;
 
 	// animation states
 	public boolean isAttacking = false;
@@ -91,13 +106,13 @@ public class Player {
 		Thread thread1 = new Thread(new Runnable(){
 			public void run(){
 				isAttacking = true;
-				for(int ctr = 1; ctr < 6; ctr++){
+				for(int ctr = 1; ctr < 13; ctr++){
 					try {
-						if(ctr==5){
+						if(ctr==13){
 							resource = getClass().getResource("cat_walk0.png");
 						}
 						else{
-							resource = getClass().getResource("fastshot"+ctr+".png");
+							resource = getClass().getResource("catAction/supershot"+ctr+".png");
 						}
 						
 						try{
