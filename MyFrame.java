@@ -12,24 +12,27 @@ public class MyFrame extends JFrame implements KeyListener{
 
 	public void keyPressed(KeyEvent e){
 		if(e.getKeyCode() == KeyEvent.VK_UP){
-			drawing.player.moveUp();
-			System.out.println("pos: " + drawing.player.x + ", " + drawing.player.y);
+			drawing.moveUp();
+			System.out.println("pos: " + drawing.x + ", " + drawing.y);
 		}
 		else if(e.getKeyCode() == KeyEvent.VK_RIGHT){
-			drawing.player.moveRight();
-			System.out.println("pos: " + drawing.player.x + ", " + drawing.player.y);
+			drawing.moveRight();
+			System.out.println("pos: " + drawing.x + ", " + drawing.y);
 		}
 		else if(e.getKeyCode() == KeyEvent.VK_DOWN){
-			drawing.player.moveDown();
-			System.out.println("pos: " + drawing.player.x + ", " + drawing.player.y);
+			drawing.moveDown();
+			System.out.println("pos: " + drawing.x + ", " + drawing.y);
 		}
 		else if(e.getKeyCode() == KeyEvent.VK_LEFT){
-			drawing.player.moveLeft();
-			System.out.println("pos: " + drawing.player.x + ", " + drawing.player.y);
+			drawing.moveLeft();
+			System.out.println("pos: " + drawing.x + ", " + drawing.y);
 		}
 		else if(e.getKeyCode() == KeyEvent.VK_SPACE){
-			drawing.player.attack();
+			drawing.attack();
 			System.out.println("attack");
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_S){
+			drawing.spawnEnemy();
 		}
 	}
 
@@ -43,7 +46,7 @@ public class MyFrame extends JFrame implements KeyListener{
 
 	public static void main(String args[]){
 		MyFrame gameFrame = new MyFrame();
-		gameFrame.setSize(803,600);
+		gameFrame.setSize(600,600);
 		gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gameFrame.setVisible(true);
 		gameFrame.getContentPane().add(gameFrame.drawing);
