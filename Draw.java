@@ -2,6 +2,7 @@ import javax.swing.JComponent;
 import javax.swing.Timer;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Font;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -15,6 +16,7 @@ public class Draw extends JComponent{
 
 	private BufferedImage image;
 	private BufferedImage backgroundImage;
+	private BufferedImage backgroundImage2;
 	public URL resource = getClass().getResource("cat_gun/cat_walk0.png");
 
 	// circle's position
@@ -22,6 +24,8 @@ public class Draw extends JComponent{
 	public int y = 420;
 	public int height = 0;
 	public int width = 0;
+	public int healthBar = 100;
+	public int backx = 5;
 
 	// animation states
 	public int state = 0;
@@ -45,6 +49,7 @@ public class Draw extends JComponent{
 		try{
 			image = ImageIO.read(resource);
 			backgroundImage = ImageIO.read(getClass().getResource("background.png"));
+			backgroundImage2 = ImageIO.read(getClass().getResource("background2.png"));
 		}
 		catch(IOException e){
 			e.printStackTrace();
@@ -178,14 +183,14 @@ public class Draw extends JComponent{
 	}
 
 	public void moveLeft(){
-		x = x - 5;
+		x = x - 8;
 		reloadImage();
 		repaint();
 		checkCollision();
 	}
 
 	public void moveRight(){
-		x = x + 5;
+		x = x + 8;
 		reloadImage();
 		repaint();
 		checkCollision();
@@ -238,11 +243,14 @@ public class Draw extends JComponent{
 	
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
-		g.drawImage(backgroundImage, 0, 0, this);
-
+		//g.drawImage(backgroundImage, 0, 0, this);
+		g.drawImage(backgroundImage, x, 0, this);
+		if (g.drawImage(backgroundImage, -x + getWidth() - getWidth(), 0 , this)){
+			g.drawImage(backgroundImage2, +x + getWidth() + getWidth(), 0, this);
+		}
 		// character grid for hero
-		g.setColor(Color.YELLOW);
-		g.fillRect(x, y, width, height);
+		//g.setColor(Color.YELLOW);
+		//g.fillRect(x, y, width, height);
 		g.drawImage(image, x, y, this);
 
 		for(int c = 0; c < monsterList.size(); c++){		
@@ -267,6 +275,11 @@ public class Draw extends JComponent{
 	//		}	
 	//	}
 	}
+
+
+
+
+
 
 	public void checkDeath(){
 		for(int c = 0; c < monsterList.size(); c++){
