@@ -16,7 +16,6 @@ public class Draw extends JComponent{
 
 	private BufferedImage image;
 	private BufferedImage backgroundImage;
-	private BufferedImage backgroundImage2;
 	public URL resource = getClass().getResource("cat_gun/cat_walk0.png");
 
 	// circle's position
@@ -48,8 +47,8 @@ public class Draw extends JComponent{
 		
 		try{
 			image = ImageIO.read(resource);
-			backgroundImage = ImageIO.read(getClass().getResource("background.png"));
-			backgroundImage2 = ImageIO.read(getClass().getResource("background2.png"));
+			backgroundImage = ImageIO.read(getClass().getResource("background3.png"));
+			
 		}
 		catch(IOException e){
 			e.printStackTrace();
@@ -244,10 +243,10 @@ public class Draw extends JComponent{
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		//g.drawImage(backgroundImage, 0, 0, this);
-		g.drawImage(backgroundImage, x, 0, this);
-		if (g.drawImage(backgroundImage, -x + getWidth() - getWidth(), 0 , this)){
-			g.drawImage(backgroundImage2, +x + getWidth() + getWidth(), 0, this);
-		}
+		//g.drawImage(backgroundImage, x, 0, this);
+		g.drawImage(backgroundImage, -x + getWidth() - getWidth(), 0 , this);
+			//g.drawImage(backgroundImage2, +x + getWidth() + getWidth(), 0, this);
+		
 		// character grid for hero
 		//g.setColor(Color.YELLOW);
 		//g.fillRect(x, y, width, height);
