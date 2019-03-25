@@ -11,12 +11,20 @@ import java.util.Random;
 import java.util.List;
 import java.util.ArrayList;
 import javax.swing.Timer;
+import javax.sound.sampled.Clip;
 
 public class Draw extends JComponent{
 
+	private SoundLoader soundLoader;
 	private BufferedImage image;
 	private BufferedImage backgroundImage;
 	public URL resource = getClass().getResource("cat_gun/cat_walk0.png");
+
+//	public void path{
+//	String soundPath = "./SoundFX/gun.mp3";
+//	soundLoader.playSound(soundPath, 5.0f);
+//	clip.loop(Clip.LOOP_CONTINUOUSLY);
+//	}
 
 	// circle's position
 	public int x = 140;
@@ -136,6 +144,7 @@ public class Draw extends JComponent{
 						}
 						else{
 							resource = getClass().getResource("cat_gun/standshot"+ctr+".png");
+
 						}
 						
 						try{
@@ -299,4 +308,13 @@ public class Draw extends JComponent{
 	//		}			
 	//	}
 	//}
+
+	private void init(){
+		soundLoader = new SoundLoader();
+		
+		soundLoader.loadSound("./SoundFX/bgmusic.m4a");
+		soundLoader.playBackGroundMusic();
+
+	}
+
 }
